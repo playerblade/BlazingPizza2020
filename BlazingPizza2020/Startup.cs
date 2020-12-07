@@ -29,6 +29,9 @@ namespace BlazingPizza2020
         {
             services.AddDbContext<PizzaContext>(options =>
                                                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<OrderContext>(options =>
+                                                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
         }
 

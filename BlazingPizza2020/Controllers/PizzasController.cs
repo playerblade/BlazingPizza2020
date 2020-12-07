@@ -23,7 +23,7 @@ namespace BlazingPizza2020.Controllers
 
         // GET: api/Pizzas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Pizza>>> GetPizzas()
+        public async Task<ActionResult<IEnumerable<PizzaModel>>> GetPizzas()
         {
             return await _context.Pizza.ToListAsync();
 
@@ -31,7 +31,7 @@ namespace BlazingPizza2020.Controllers
 
         // GET: api/Pizzas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Pizza>> GetPizza(int id)
+        public async Task<ActionResult<PizzaModel>> GetPizza(int id)
         {
             var pizza = await _context.Pizza.FindAsync(id);
 
@@ -47,7 +47,7 @@ namespace BlazingPizza2020.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPizza(int id, Pizza pizza)
+        public async Task<IActionResult> PutPizza(int id, PizzaModel pizza)
         {
             if (id != pizza.Id)
             {
@@ -79,7 +79,7 @@ namespace BlazingPizza2020.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Pizza>> PostPizza(Pizza pizza)
+        public async Task<ActionResult<PizzaModel>> PostPizza(PizzaModel pizza)
         {
             _context.Pizza.Add(pizza);
             await _context.SaveChangesAsync();
@@ -89,7 +89,7 @@ namespace BlazingPizza2020.Controllers
 
         // DELETE: api/Pizzas/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Pizza>> DeletePizza(int id)
+        public async Task<ActionResult<PizzaModel>> DeletePizza(int id)
         {
             var pizza = await _context.Pizza.FindAsync(id);
             if (pizza == null)
