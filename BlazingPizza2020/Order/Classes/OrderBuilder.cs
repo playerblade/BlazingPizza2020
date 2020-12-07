@@ -8,6 +8,7 @@ namespace BlazingPizza2020.Order.Classes
 {
     public class OrderBuilder
     {
+        public int CostoPedido { get; set; }
         public List<Pizza> pizzas { get; set; }
     }
 }

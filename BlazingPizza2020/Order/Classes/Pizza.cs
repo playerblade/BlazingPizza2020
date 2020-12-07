@@ -25,6 +25,11 @@ namespace BlazingPizza2020.Order.Classes
             this.cobertura = cobertura;
         }
 
+        public void setCoberturasFinales(List<Pizza> coberturasFinales)
+        {
+            this.coberturasFinales = coberturasFinales;
+        }
+
         public void setCoberturas(List<PizzaBuilder> coberturas) {
             this.coberturas = coberturas;
         }

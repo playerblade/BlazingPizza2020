@@ -9,7 +9,6 @@ namespace BlazingPizza2020.Models
     {
         public int Id { get; set; }
         public int IdClient{ get; set; }
-        public int IdKitchen { get; set; }
         public int IdDelivery { get; set; }
         public string State { get; set; }
         public int Quantity { get; set; }

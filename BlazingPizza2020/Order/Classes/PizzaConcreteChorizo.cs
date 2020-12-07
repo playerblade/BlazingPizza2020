@@ -6,7 +6,7 @@ namespace BlazingPizza2020.Order.Abstracts
             pizza.setCosto(5);
         }
         protected override void buildCobertura(){
-            pizza.setCobertura("Chrorizo");
+            pizza.setCobertura("Chorizo");
         }
     }
 }

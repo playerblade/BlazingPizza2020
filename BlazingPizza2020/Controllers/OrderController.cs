@@ -12,26 +12,50 @@ using BlazingPizza2020.Models;
 
 namespace BlazingPizza2020.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
     public class OrderController : ControllerBase
     {
         private readonly OrderContext _context;
+        private readonly PizzaContext _contextPizza;
+        private readonly PizzaCoverageContext _contextPizzaCoverage;
 
-        public OrderController(OrderContext context)
+        public OrderController(OrderContext context, PizzaContext contextPizza, PizzaCoverageContext contextPizzaCoverage)
         {
             _context = context;
+            _contextPizza = contextPizza;
+            _contextPizzaCoverage = contextPizzaCoverage;
         }
 
+        [Route("api/Order")]
         [HttpGet]
         public string GetAll()
         {
             return "sdasdads";
         }
 
+
+
+        [Route("api/Order")]
+        // GET: api/Pizzas/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Pedido>> GetOrder(int id)
+        {
+            var pizza = await _context.Order.FindAsync(id);
+
+            if (pizza == null)
+            {
+                return NotFound();
+            }
+
+            return pizza;
+        }
+
+
         // POST: api/Pizzas
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Route("api/Order")]
         [HttpPost]
         public async Task<ActionResult<OrderBuilder>> PostOrder(OrderBuilder orderBuilder)
         {
@@ -76,7 +100,6 @@ namespace BlazingPizza2020.Controllers
                     switch (coverage)
                     {
                         case "Piña":
-
                             coberturas.Add(new PizzaConcretePinia());
                             break;
                         case "Jamon":
@@ -97,21 +120,86 @@ namespace BlazingPizza2020.Controllers
                 PedidoLista[j].setTamanio(tamanio);
             }
 
-            orderBuilder.pizzas = PedidoLista;
+            //orderBuilder.pizzas = PedidoLista;
 
+            CalcularCosto costo = new CalcularCosto();
+            costo.setPedidoLista(PedidoLista);
+            orderBuilder.pizzas = costo.CalcularCostoPedido();
+            orderBuilder.CostoPedido = costo.costoTotal;
+
+            return orderBuilder;
+        }
+
+        [Route("api/Order/Confirm")]
+        [HttpPost]
+        public async Task<ActionResult<OrderBuilder>> PostOrderSave(OrderBuilder orderBuilder)
+        {
             Pedido pedido = new Pedido();
-            pedido.Id = 10;
             pedido.IdClient = 1;
             pedido.IdDelivery = 1;
-            pedido.IdKitchen = 1;
-            pedido.Price = 10;
-            pedido.Quantity = 5;
+            pedido.Price = orderBuilder.CostoPedido;
+            pedido.Quantity = orderBuilder.pizzas.Count;
             pedido.StartDate = "2012-12-12 00:00:00.000";
             pedido.EndDate = "2012-12-12 00:00:00.000";
-            pedido.State = "1";
+            pedido.State = "Cocina";
 
             _context.Order.Add(pedido);
             await _context.SaveChangesAsync();
+
+            List<Pizza> PedidoLista = orderBuilder.pizzas;
+
+            for (int j = 0; j < PedidoLista.Count; j++)
+            {
+
+                PizzaModel pizzaModel = new PizzaModel();
+                pizzaModel.IdOrder = pedido.Id;
+                pizzaModel.IdKitchen = 1;
+                pizzaModel.Price = PedidoLista[j].costo;
+                pizzaModel.State = "1";
+
+                string size = PedidoLista[j].tamanio.tamanio;
+                Tamanio tamanio = new Tamanio();
+                switch (size)
+                {
+                    case "Pequeño":
+                        pizzaModel.IdSize = 1;
+                        break;
+                    case "Mediano":
+                        pizzaModel.IdSize = 2;
+                        break;
+                    case "Grande":
+                        pizzaModel.IdSize = 3;
+                        break;
+                }
+
+                _contextPizza.Pizza.Add(pizzaModel);
+                await _contextPizza.SaveChangesAsync();
+
+                for (int i = 0; i < PedidoLista[j].coberturasFinales.Count; i++)
+                {
+                    PizzaCoverage pizzaCoverage = new PizzaCoverage();
+                    pizzaCoverage.IdPizza = pizzaModel.Id;
+
+                    string coverage = PedidoLista[j].coberturasFinales[i].cobertura;
+                    switch (coverage)
+                    {
+                        case "Piña":
+                            pizzaCoverage.IdCoverage = 1;
+                            break;
+                        case "Jamon":
+                            pizzaCoverage.IdCoverage = 2;
+                            break;
+                        case "Chorizo":
+                            pizzaCoverage.IdCoverage = 3;
+                            break;
+                    }
+
+                    _contextPizzaCoverage.PizzaCoverage.Add(pizzaCoverage);
+                    await _contextPizzaCoverage.SaveChangesAsync();
+                }
+            }
+
+            //orderBuilder.pizzas = PedidoLista;
 
             return orderBuilder;
         }
