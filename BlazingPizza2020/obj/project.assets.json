@@ -8922,19 +8922,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daniel\\.nuget\\packages\\": {}
+    "C:\\Users\\play3r\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel\\Documents\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj",
+      "projectUniqueName": "D:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj",
       "projectName": "BlazingPizza2020",
-      "projectPath": "C:\\Users\\Daniel\\Documents\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj",
-      "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel\\Documents\\BlazingPizza2020\\BlazingPizza2020\\obj\\",
+      "projectPath": "D:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj",
+      "packagesPath": "C:\\Users\\play3r\\.nuget\\packages\\",
+      "outputPath": "D:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\play3r\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8946,7 +8946,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -8958,7 +8957,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -9001,7 +8999,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

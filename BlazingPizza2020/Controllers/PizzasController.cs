@@ -26,7 +26,7 @@ namespace BlazingPizza2020.Controllers
         public async Task<ActionResult<IEnumerable<PizzaModel>>> GetPizzas()
         {
             return await _context.Pizza.ToListAsync();
-            
+
         }
 
         // GET: api/Pizzas/5
