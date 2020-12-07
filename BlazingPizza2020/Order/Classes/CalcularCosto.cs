@@ -10,7 +10,7 @@ namespace BlazingPizza2020.Order.Classes
         public  void setPedidoLista(List<Pizza> PedidoLista){
             this.PedidoLista = PedidoLista;
         }
-        public  void CalcularCostoPedido(){
+        public List<Pizza> CalcularCostoPedido(){
             int count = 1;
             int costoUni = 0;
             Console.WriteLine("========================== Calculando Costo: =======================");
@@ -24,11 +24,13 @@ namespace BlazingPizza2020.Order.Classes
                     costoTotal +=pedido.coberturas[i].pizza.costo;
                     costoUni +=pedido.coberturas[i].pizza.costo;
                 }
+                pedido.costo = costoUni;
                 Console.WriteLine(costoUni);
                 costoUni = 0;
                 count++;
             }
             Console.WriteLine("Costo Total: "+costoTotal);
+            return this.PedidoLista;
         }
     }
 }
