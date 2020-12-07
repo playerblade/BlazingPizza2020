@@ -7,14 +7,13 @@ using BlazingPizza2020.Models;
 
 namespace BlazingPizza2020.Contexts
 {
-    public class PizzaContext : DbContext
+    public class OrderContext : DbContext
     {
-        public PizzaContext(DbContextOptions<PizzaContext> data) : base(data)
+        public OrderContext(DbContextOptions<OrderContext> data) : base(data)
         {
 
         }
 
-        public DbSet<PizzaModel> Pizza { get; set; }
-
+        public DbSet<Pedido> Order { get; set; }
     }
 }
