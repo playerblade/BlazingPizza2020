@@ -7,8 +7,6 @@ D:\Desktop\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizz
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizza2020.RazorTargetAssemblyInfo.cache
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\staticwebassets\BlazingPizza2020.StaticWebAssets.Manifest.cache
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\staticwebassets\BlazingPizza2020.StaticWebAssets.xml
-D:\Desktop\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizza2020.csproj.CoreCompileInputs.cache
-D:\Desktop\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizza2020.MvcApplicationPartsAssemblyInfo.cache
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
@@ -308,3 +306,9 @@ C:\Users\Daniel\Documents\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp
 C:\Users\Daniel\Documents\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizza2020.dll
 C:\Users\Daniel\Documents\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizza2020.pdb
 C:\Users\Daniel\Documents\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizza2020.genruntimeconfig.cache
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\AWSSDK.Core.dll
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\AWSSDK.SimpleNotificationService.dll
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.EventBus.Abstractions.dll
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.EventBus.AmazonSns.dll
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.EventBus.Core.dll
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.EventBus.InMemory.dll

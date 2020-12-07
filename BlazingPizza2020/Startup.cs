@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using BlazingPizza2020.Contexts;
+using BlazingPizza2020.EventBus.Handlers;
 
 namespace BlazingPizza2020
 {
@@ -33,6 +34,17 @@ namespace BlazingPizza2020
             services.AddDbContext<OrderContext>(options =>
                                                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
+
+            services.AddMvc();
+            services.AddMemoryCache();
+            services.AddEventBus(builder =>
+            {
+                builder
+                    .AddInMemoryEventBus(subscriber =>
+                    {
+                        subscriber.SubscribeAllHandledEvents<SentEventHandler>();
+                    });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
