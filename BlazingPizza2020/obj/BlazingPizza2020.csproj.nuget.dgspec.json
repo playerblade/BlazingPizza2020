@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj": {}
+    "d:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj": {}
   },
   "projects": {
-    "D:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj": {
+    "d:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj",
+        "projectUniqueName": "d:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj",
         "projectName": "BlazingPizza2020",
-        "projectPath": "D:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj",
+        "projectPath": "d:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\BlazingPizza2020.csproj",
         "packagesPath": "C:\\Users\\play3r\\.nuget\\packages\\",
-        "outputPath": "D:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\obj\\",
+        "outputPath": "d:\\Desktop\\BlazingPizza2020\\BlazingPizza2020\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\play3r\\AppData\\Roaming\\NuGet\\NuGet.Config",
