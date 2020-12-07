@@ -2,7 +2,7 @@
 
 namespace BlazingPizza2020.EventBus.Handlers
 {
-    [AmazonSnsTopic("Se termino de prepar los pedidos")]
+    [AmazonSnsTopic("Se Confirmo el pedido ahora el pedido esta en cosina")]
     public class MessageSent
     {
         public MessageSent(string message) => Message = message;

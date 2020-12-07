@@ -312,3 +312,6 @@ D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.Event
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.EventBus.AmazonSns.dll
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.EventBus.Core.dll
 D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.EventBus.InMemory.dll
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\bin\Debug\netcoreapp3.1\JKang.EventBus.dll
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizza2020.csproj.CoreCompileInputs.cache
+D:\Desktop\BlazingPizza2020\BlazingPizza2020\obj\Debug\netcoreapp3.1\BlazingPizza2020.MvcApplicationPartsAssemblyInfo.cache

@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "BlazingPizza2020/1.0.0": {
         "dependencies": {
+          "JKang.EventBus": "1.1.0",
           "JKang.EventBus.Abstractions": "1.1.0",
           "JKang.EventBus.AmazonSns": "1.1.0",
           "JKang.EventBus.Core": "1.1.0",
@@ -340,6 +341,20 @@
         },
         "compile": {
           "lib/netstandard1.3/AWSSDK.SimpleNotificationService.dll": {}
+        }
+      },
+      "JKang.EventBus/1.1.0": {
+        "dependencies": {
+          "JKang.EventBus.Core": "1.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/JKang.EventBus.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/JKang.EventBus.dll": {}
         }
       },
       "JKang.EventBus.Abstractions/1.1.0": {
@@ -4131,6 +4146,13 @@
       "sha512": "sha512-tSoo5MTfiNOvmrEL1VtsMz5s7f1J/CDAW1wTfKfhNGgAxLjoRVx4PnpzHtTBY9YBzz224U/8gnrYV9tbfHk7aw==",
       "path": "awssdk.simplenotificationservice/3.3.3.2",
       "hashPath": "awssdk.simplenotificationservice.3.3.3.2.nupkg.sha512"
+    },
+    "JKang.EventBus/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Mzl0or6fkc9vWifnV7JlYfrjG4nIRiMiNs/Ag7yyisLP0ab3tznaHQJfgenyh8F+R2Mad4+NLvOMyxs9uqgrEQ==",
+      "path": "jkang.eventbus/1.1.0",
+      "hashPath": "jkang.eventbus.1.1.0.nupkg.sha512"
     },
     "JKang.EventBus.Abstractions/1.1.0": {
       "type": "package",

@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BlazingPizza2020.Contexts;
 using BlazingPizza2020.Models;
-using JKang.EventBus;
-using Microsoft.Extensions.Caching.Memory;
 using BlazingPizza2020.EventBus.Handlers;
 
 namespace BlazingPizza2020.Controllers
@@ -18,26 +16,17 @@ namespace BlazingPizza2020.Controllers
     public class PizzasController : ControllerBase
     {
         private readonly PizzaContext _context;
-        private readonly IEventPublisher _eventPublisher;
-        private readonly IMemoryCache _memoryCache;
 
-        public PizzasController(PizzaContext context, IEventPublisher eventPublisher, IMemoryCache memoryCache)
+        public PizzasController(PizzaContext context)
         {
-            _eventPublisher = eventPublisher;
-            _memoryCache = memoryCache;
+           
             _context = context;
         }
-
-        public List<string> Messages { get; private set; }
-
-        [BindProperty]
-        public string Message { get; set; }
 
         // GET: api/Pizzas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PizzaModel>>> GetPizzas()
         {
-            await _eventPublisher.PublishEventAsync(new MessageSent(Message));
 
             return await _context.Pizza.ToListAsync();
 
