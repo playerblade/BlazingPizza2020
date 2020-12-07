@@ -9,9 +9,13 @@ using System.Threading.Tasks;
 using BlazingPizza2020.Contexts;
 using Microsoft.EntityFrameworkCore;
 using BlazingPizza2020.Models;
+using JKang.EventBus;
+using Microsoft.Extensions.Caching.Memory;
+using BlazingPizza2020.EventBus.Handlers;
 
 namespace BlazingPizza2020.Controllers
 {
+    
     //[Route("api/[controller]")]
     [ApiController]
     public class OrderController : ControllerBase
@@ -20,12 +24,24 @@ namespace BlazingPizza2020.Controllers
         private readonly PizzaContext _contextPizza;
         private readonly PizzaCoverageContext _contextPizzaCoverage;
 
-        public OrderController(OrderContext context, PizzaContext contextPizza, PizzaCoverageContext contextPizzaCoverage)
+        private readonly IEventPublisher _eventPublisher;
+        private readonly IMemoryCache _memoryCache;
+
+        public OrderController(
+            OrderContext context, PizzaContext contextPizza, PizzaCoverageContext contextPizzaCoverage,
+            IEventPublisher eventPublisher, IMemoryCache memoryCache
+            )
         {
             _context = context;
             _contextPizza = contextPizza;
             _contextPizzaCoverage = contextPizzaCoverage;
+            _eventPublisher = eventPublisher;
+            _memoryCache = memoryCache;
         }
+        public List<string> Messages { get; private set; }
+
+        [BindProperty]
+        public string Message { get; set; }
 
         [Route("api/Order")]
         [HttpGet]
@@ -200,6 +216,7 @@ namespace BlazingPizza2020.Controllers
             }
 
             //orderBuilder.pizzas = PedidoLista;
+            await _eventPublisher.PublishEventAsync(new MessageSent(Message));
 
             return orderBuilder;
         }

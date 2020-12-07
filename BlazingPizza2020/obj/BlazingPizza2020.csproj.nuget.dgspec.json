@@ -40,6 +40,26 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "JKang.EventBus": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "JKang.EventBus.Abstractions": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "JKang.EventBus.AmazonSns": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "JKang.EventBus.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "JKang.EventBus.InMemory": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.0, )"

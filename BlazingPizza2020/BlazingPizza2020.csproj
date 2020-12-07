@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="JKang.EventBus" Version="1.1.0" />
+    <PackageReference Include="JKang.EventBus.Abstractions" Version="1.1.0" />
+    <PackageReference Include="JKang.EventBus.AmazonSns" Version="1.1.0" />
+    <PackageReference Include="JKang.EventBus.Core" Version="1.1.0" />
+    <PackageReference Include="JKang.EventBus.InMemory" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />

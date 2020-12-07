@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BlazingPizza2020.Contexts;
 using BlazingPizza2020.Models;
+using BlazingPizza2020.EventBus.Handlers;
 
 namespace BlazingPizza2020.Controllers
 {
@@ -18,6 +19,7 @@ namespace BlazingPizza2020.Controllers
 
         public PizzasController(PizzaContext context)
         {
+           
             _context = context;
         }
 
@@ -25,6 +27,7 @@ namespace BlazingPizza2020.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PizzaModel>>> GetPizzas()
         {
+
             return await _context.Pizza.ToListAsync();
 
         }
