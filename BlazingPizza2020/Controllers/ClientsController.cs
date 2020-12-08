@@ -117,11 +117,18 @@ namespace BlazingPizza2020.Controllers
         public string PostClientLigin(Proxy clientProxy)
         {
 
-            var clientAux = _context.Client.FromSqlRaw("SELECT * FROM dbo.Client c WHERE c.User = '" + clientProxy.cliente.User + "'").ToString();
+            var clientAux = _context.Client.FromSqlRaw("SELECT * FROM dbo.Client c WHERE c.User = '" + clientProxy.cliente.User + "'").ToList();
             //_context.Client.Add(clientProxy.cliente);
             //await _context.SaveChangesAsync();
 
-            return clientAux.ToString();
+            var item = _context.Client.FindAsync(clientAux);
+
+            if (item == null)
+            {
+                return "no foud";
+            }
+
+            return item.ToString();
         }
     }
 }
