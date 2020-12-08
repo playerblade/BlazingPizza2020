@@ -9,6 +9,9 @@ namespace BlazingPizza2020.Order.Classes
     public class OrderBuilder
     {
         public int CostoPedido { get; set; }
+        public int IdClient { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
         public List<Pizza> pizzas { get; set; }
     }
 }

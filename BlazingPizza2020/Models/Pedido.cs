@@ -15,5 +15,7 @@ namespace BlazingPizza2020.Models
         public float Price { get; set; }
         public string StartDate { get; set; }
         public string EndDate { get; set; }
+        public string Longitude { get; set; }
+        public string Latitude { get; set; }
     }
 }

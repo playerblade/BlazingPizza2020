@@ -8,6 +8,6 @@ namespace BlazingPizza2020.Models
     public class Size
     {
         public int Id { get; set; }
-        public string Size { get; set; }
+        public string size { get; set; }
     }
 }
