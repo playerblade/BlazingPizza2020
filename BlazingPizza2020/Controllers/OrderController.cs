@@ -75,10 +75,7 @@ namespace BlazingPizza2020.Controllers
         [HttpPost]
         public async Task<ActionResult<OrderBuilder>> PostOrder(OrderBuilder orderBuilder)
         {
-            //ObjectPool<Pizza> CapasidadPizzas = new ObjectPool<Pizza>();
-            //CapasidadPizzas = ObjectPool<Pizza>.GetInstance();
-            //CapasidadPizzas.SetMaxPoolSize(2);
-
+            int IdCliente = orderBuilder.IdClient;
             List<Pizza> PedidoLista = orderBuilder.pizzas;
 
             for (int j = 0; j < PedidoLista.Count; j++)
@@ -142,6 +139,7 @@ namespace BlazingPizza2020.Controllers
             costo.setPedidoLista(PedidoLista);
             orderBuilder.pizzas = costo.CalcularCostoPedido();
             orderBuilder.CostoPedido = costo.costoTotal;
+            orderBuilder.IdClient = IdCliente;
 
             return orderBuilder;
         }
@@ -151,7 +149,7 @@ namespace BlazingPizza2020.Controllers
         public async Task<ActionResult<OrderBuilder>> PostOrderSave(OrderBuilder orderBuilder)
         {
             Pedido pedido = new Pedido();
-            pedido.IdClient = 1;
+            pedido.IdClient = orderBuilder.IdClient;
             pedido.IdDelivery = 1;
             pedido.Price = orderBuilder.CostoPedido;
             pedido.Quantity = orderBuilder.pizzas.Count;
@@ -171,7 +169,7 @@ namespace BlazingPizza2020.Controllers
                 pizzaModel.IdOrder = pedido.Id;
                 pizzaModel.IdKitchen = 1;
                 pizzaModel.Price = PedidoLista[j].costo;
-                pizzaModel.State = "1";
+                pizzaModel.State = "Preparando";
 
                 string size = PedidoLista[j].tamanio.tamanio;
                 Tamanio tamanio = new Tamanio();

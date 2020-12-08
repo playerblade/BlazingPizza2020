@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BlazingPizza2020.Authentication;
 using BlazingPizza2020.Contexts;
 using BlazingPizza2020.Models;
 using Microsoft.AspNetCore.Http;
@@ -18,7 +19,6 @@ namespace BlazingPizza2020.Controllers
 
         public ClientsController(ClientContext context)
         {
-
             _context = context;
         }
 
@@ -81,12 +81,15 @@ namespace BlazingPizza2020.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<PizzaModel>> PostClient(Client client)
+        public async Task<ActionResult<Client>> PostClient(Proxy clientProxy)
         {
-            _context.Client.Add(client);
+            //Proxy clientProxy = new Proxy();
+            //clientProxy.createCliente(client.Name, client.LastName, client.Ci, client.User, client.Password, client.Longitude, client.Latitude, client.Phone);
+
+            _context.Client.Add(clientProxy.cliente);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPizza", new { id = client.Id }, client);
+            return CreatedAtAction("GetClient", new { id = clientProxy.cliente.Id }, clientProxy.cliente);
         }
 
         // DELETE: api/Pizzas/5
@@ -108,6 +111,17 @@ namespace BlazingPizza2020.Controllers
         private bool ClientExists(int id)
         {
             return _context.Client.Any(e => e.Id == id);
+        }
+
+        [HttpPost("login")]
+        public string PostClientLigin(Proxy clientProxy)
+        {
+
+            var clientAux = _context.Client.FromSqlRaw("SELECT * FROM dbo.Client c WHERE c.User = '" + clientProxy.cliente.User + "'").ToString();
+            //_context.Client.Add(clientProxy.cliente);
+            //await _context.SaveChangesAsync();
+
+            return clientAux.ToString();
         }
     }
 }
